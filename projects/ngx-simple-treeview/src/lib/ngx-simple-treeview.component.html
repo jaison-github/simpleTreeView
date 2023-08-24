@@ -27,7 +27,7 @@
     <ul>
         <ng-container *ngIf="context?.internalChildren">
             <li class="tree_view_item">
-                <nav (click)="onItemClick(context)"
+                <nav (click)="onItemClick(context)"  (contextmenu)="displayContextMenu($event, context); false"   
                     [ngClass]="{'isExpanded':context.isExpanded,  'isSelected':context.selected}">
 
                     <div class="tree_view_content">
@@ -50,6 +50,13 @@
                         </svg>
                     </button>
 
+
+                    <context-menu
+                    *ngIf="rightClickMenuItems.length > 0 && isDisplayContextMenu"
+                    [ngStyle]="getRightClickMenuStyle()"
+                    [contextMenuItems]="rightClickMenuItems"
+                    (onContextMenuItemClick)="handleMenuItemClick($event)"
+                  ></context-menu>
                 </nav>
 
                 <ng-container *ngIf="context.isExpanded">
@@ -65,12 +72,19 @@
 
         <ng-container *ngIf="!context?.internalChildren || context?.internalChildren?.length == 0">
             <li class="tree_view_item">
-                <nav (click)="onItemClick(context)"
+                <nav (click)="onItemClick(context)" (contextmenu)="displayContextMenu($event, context); false"
                     [ngClass]="{'isExpanded':context.isExpanded,  'isSelected':context.selected}">
                     <div class="tree_view_content">
                         <input type="checkbox" [(ngModel)]="context.selected" (click)="onSelect(context)" />
                         <span class="tree_view_text">{{context?.text}}</span>
                     </div>
+
+                    <context-menu
+                    *ngIf="rightClickMenuItems.length > 0 && isDisplayContextMenu"
+                    [ngStyle]="getRightClickMenuStyle()"
+                    [contextMenuItems]="rightClickMenuItems"
+                    (onContextMenuItemClick)="handleMenuItemClick($event)"
+                  ></context-menu>
                 </nav>
             </li>
         </ng-container>

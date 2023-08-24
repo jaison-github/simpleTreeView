@@ -3,12 +3,14 @@ import { NgxSimpleTreeviewComponent } from './ngx-simple-treeview.component';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ContextMenuComponent } from './context-menu/context-menu.component';
 
 
 
 @NgModule({
   declarations: [
-    NgxSimpleTreeviewComponent
+    NgxSimpleTreeviewComponent,
+    ContextMenuComponent
   ],
   imports: [
     BrowserModule,
