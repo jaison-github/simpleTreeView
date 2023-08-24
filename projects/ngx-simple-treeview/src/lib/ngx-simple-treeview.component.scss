@@ -1,0 +1,86 @@
+.tree_view_wrap{
+    ul{
+        padding: 0;
+        list-style: none;
+        font-size: inherit;
+        font-family: inherit;
+    .tree_view_item{
+        ul{
+            padding-left: 2rem;
+        }
+        > nav{
+            display: flex;
+            flex-wrap: nowrap;
+            background-color: #fff;
+            margin: 1px 0px;
+            padding: 0.5rem;
+            justify-content: space-between;
+            align-items: center;
+            border:1px solid #ddd;
+     
+
+
+
+            input[type='checkbox']{
+                width:20px;
+                height:20px;
+            }
+
+            &.isExpanded{
+                border-color:  #c8d8cf;  
+            }
+            &.isSelected{
+                background-color: #e9f8f0;
+            }
+
+            svg{
+                width: 16px;
+                height: 16px;           
+            }
+        }
+    }
+
+    .tree_view_content{
+        display: flex;
+    align-items: center;
+    gap: 5px;
+    }
+
+
+   
+}
+
+
+
+}
+
+
+.tree_view_header{
+    display: flex;
+    gap:5px;
+    justify-content: space-between;
+    section{
+        display: flex;
+        gap:5px;
+        
+        button{
+            padding: 5px 10px;
+            background-color: #fff;
+            border:1px solid #cdcdcd;
+            min-width: 60px;
+            white-space: nowrap;
+        }
+
+        input{
+            width:100%;
+            background-color: #fff;
+            border:1px solid #cdcdcd;
+            padding: 10px;
+            width:100%
+        }
+
+        &:first-child{
+            width:100%
+        }
+    }
+}
